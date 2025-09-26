@@ -11,11 +11,28 @@
                 </div>
 
                 <!-- Navigation Links -->
+               
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link href="{{ route('categoriadonacion.index') }}" :active="request()->routeIs('categoriadonacion.*')">
+                        {{ __('Categorias de donacion') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('categoriataller.index') }}" :active="request()->routeIs('categoriataller.*')">
+                        {{ __('Categoria de taller') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('donacion.index') }}" :active="request()->routeIs('donacion.*')">
+                        {{ __('Donacion') }}
+                    </x-nav-link>
+                </div>
+
+
+
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
