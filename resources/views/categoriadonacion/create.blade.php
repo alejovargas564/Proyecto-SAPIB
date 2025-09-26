@@ -13,16 +13,16 @@
                            placeholder="Ej: Donaciones Médicas" required>
                 </div>
 
-                <!-- Botones centrados -->
+                
                 <div class="flex justify-center space-x-4">
-                    <!-- Botón Guardar -->
+                    
                     <button type="submit"
                             style="color: black; background-color: #10b948ff "
                             class="px-5 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition">
                         Guardar 💾
                     </button>
                     <hr/>
-                    <!-- Botón Cancelar -->
+                    
                     <a href="{{ route('categoriadonacion.index') }}"
                         style="color: black; background-color: #d60e0eff "
                        class="px-5 py-2 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition">

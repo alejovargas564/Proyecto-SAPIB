@@ -26,7 +26,7 @@
                     @enderror
                 </div>
 
-                <!-- Selección de Método -->
+                
                 <div>
                     <label for="metodo_donacion_id_metodo_donacion" class="block text-sm font-medium text-gray-700">
                         Método de Donación
@@ -46,16 +46,16 @@
                     @enderror
                 </div>
 
-                <!-- Botones centrados -->
+                
                 <div class="flex justify-center space-x-4">
-                    <!-- Botón Guardar -->
+                    
                     <button type="submit"
                             style="color: black; background-color: #10b948ff;"
                             class="px-5 py-2 text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition">
                         Guardar 💾
                     </button>
 
-                    <!-- Botón Cancelar -->
+                    
                     <a href="{{ route('donacion.index') }}"
                        style="color: black; background-color: #d60e0eff;"
                        class="px-5 py-2 text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition">

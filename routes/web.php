@@ -5,6 +5,7 @@
     use App\Http\Controllers\donacion\DonacionController;
     use App\Http\Controllers\HistorialVisitas\HistorialVisitasController;
     use App\Http\Controllers\taller\TallerController;
+    use App\Http\Controllers\usuariohasdonacion\UsuarioHasDonacionController;
     use App\Models\CategoriaDonacion;
     use Illuminate\Support\Facades\Route;
     
@@ -14,6 +15,8 @@
     Route::get('/', function () {
         return view('bienvenido');
     });
+
+    
 
     Route::resource('donacion', DonacionController::class);
 
@@ -40,6 +43,10 @@
     Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     ->resource('taller', TallerController::class)
     ->names('taller');
+
+    Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
+    ->resource('usuariohasdonacion', UsuarioHasDonacionController::class)
+    ->names('usuariohasdonacion');
 
     Route::middleware([
         'auth:sanctum',

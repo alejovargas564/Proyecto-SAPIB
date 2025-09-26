@@ -1,20 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Donaciones') }}
+            {{ __('Donaciones por Usuario') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <h1 class="text-2xl font-bold mb-6 text-gray-800">Listado de Donaciones</h1>
-
                 
-                <a href="{{ route('donacion.create') }}"
-                    style="background-color: #16a34a; color: white;"
-                    class="inline-block px-6 py-2 font-semibold rounded-lg shadow-md hover:opacity-90 transition">
-                    ➕ Nueva Donación
+                <h1 class="text-2xl font-bold mb-6 text-gray-800">Listado de Donaciones de Usuarios</h1>
+
+                <a href="{{ route('usuariohasdonacion.create') }}"
+                   style="background-color: #16a34a; color: white;"
+                   class="inline-block px-6 py-2 font-semibold rounded-lg shadow-md hover:opacity-90 transition">
+                   ➕ Nueva Donación
                 </a>
 
                 <hr/>
@@ -29,34 +29,53 @@
                 <table id="donaciones" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>ID Donación</th>
-                            <th>Categoría Donación</th>                           
-                            <th>Nombre Método Donación</th>
+                            <th>ID Registro</th>
+                            <th>Usuario</th>
+                            <th>Donación</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($donacion as $d)
+                        @foreach($usuariohasdonacion as $u)
                             <tr>
-                                <td>{{ $d->id_donacion }}</td>
-                                <td>{{ $d->categoria_donacion->nombre_categoria ?? 'Sin categoría' }}</td>
-                                <td>{{ $d->metodo_donacion->nombre_metodo_donacion ?? 'Sin método' }}</td>
+                                <td>{{ $u->usuario_por_donacion }}</td>
+                                
+                                {{-- Mostrar nombre del usuario --}}
+                                <td>{{ $u->user ? $u->user->name : '---' }}</td>
+
+                                {{-- Mostrar el nombre de la donación si existe relación --}}
+                                <td>{{ $u->donacion ? $u->donacion->nombre_donacion : $u->donacion_id_donacion }}</td>
+                                
+                                <td>{{ $u->fecha_donacion ? $u->fecha_donacion->format('d/m/Y') : '---' }}</td>
                                 <td>
-                                    <a href="{{ route('donacion.edit', $d->id_donacion) }}"
-                                       class="btn btn-sm btn-warning"
-                                       style="background-color: #2a41c2ff; color: white;">
+                                    <span class="px-2 py-1 rounded text-white text-sm font-semibold"
+                                          style="background-color: {{ $u->estado_donacion ? '#16a34a' : '#a31616' }};">
+                                        {{ $u->estado_donacion ? 'Activo' : 'Inactivo' }}
+                                    </span>
+                                </td>
+                                <td>{{ $u->descripcion_donacion ?? '---' }}</td>
+                                <td>{{ $u->cantidad_donacion ?? '---' }}</td>
+                                
+                                <td>
+                                    <a href="{{ route('usuariohasdonacion.edit', $u->usuario_por_donacion) }}"
+                                       class="rounded px-4 py-1 text-white shadow-md hover:opacity-90 transition"
+                                       style="background-color: #2a41c2ff;">
                                        Editar ✏️
                                     </a>
 
-                                    <form action="{{ route('donacion.destroy', $d->id_donacion) }}"
+                                    <form action="{{ route('usuariohasdonacion.destroy', $u->usuario_por_donacion) }}"
                                           method="POST"
                                           style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                            class="btn btn-sm btn-danger"
-                                            style="background-color: #a31616ff; color: white;"
-                                            onclick="return confirm('¿Seguro que deseas eliminar esta donación?')">
+                                            class="rounded px-3 py-1 text-white shadow-md hover:opacity-90 transition"
+                                            style="background-color: #a31616ff;"
+                                            onclick="return confirm('¿Seguro que deseas eliminar este registro?')">
                                             Eliminar 🗑️
                                         </button>
                                     </form>

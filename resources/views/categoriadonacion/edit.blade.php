@@ -9,7 +9,7 @@
                 @csrf
                 @method('PUT')
 
-                <!-- Campo de Nombre -->
+                
                 <div>
                     <label for="nombre_categoria" class="block text-sm font-medium text-gray-700">
                         Nombre de la Categoría
@@ -22,16 +22,15 @@
                            required>
                 </div>
 
-                <!-- Botones centrados -->
+                
                 <div class="flex justify-center space-x-4">
-                    <!-- Botón Actualizar -->
+                    
                     <button type="submit"
                             style="color: black; background-color: #2a41c2ff"
                             class="px-5 py-2 font-semibold rounded-lg shadow-md hover:opacity-90 transition">
                         Actualizar ✅
                     </button>
 
-                    <!-- Botón Cancelar -->
                     <a href="{{ route('categoriadonacion.index') }}"
                        style="color: black; background-color: #d60e0eff"
                        class="px-5 py-2 font-semibold rounded-lg shadow-md hover:opacity-90 transition">

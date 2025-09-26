@@ -17,16 +17,16 @@
                     @enderror
                 </div>
 
-                <!-- Botones centrados -->
+                
                 <div class="flex justify-center space-x-4">
-                    <!-- Guardar -->
+                    
                     <button type="submit"
                             style="color: black; background-color: #10b948ff"
                             class="px-5 py-2 font-semibold rounded-lg shadow-md hover:opacity-90 transition">
                         Guardar 💾
                     </button>
 
-                    <!-- Cancelar -->
+                    
                     <a href="{{ route('categoriataller.index') }}"
                        style="color: black; background-color: #d60e0eff"
                        class="px-5 py-2 font-semibold rounded-lg shadow-md hover:opacity-90 transition">

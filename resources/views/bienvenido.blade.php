@@ -17,7 +17,7 @@
       
       <!-- LOGO izquierda -->
       <div class="flex items-center space-x-2">
-        <img src="{{ asset('img/logo sapib.jpeg') }}" alt="Logo SAPIB" class="h-14 w-auto">
+        <img src="{{ asset('img/SAPIF.png') }}" alt="Impacto" class="rounded-lg shadow-lg mx-auto h-10 object-cover" class="h-14 w-auto">
         <span class="text-xl font-bold text-white-400">SAPIB</span>
       </div>
 
